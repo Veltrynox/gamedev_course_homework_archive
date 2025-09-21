@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class LevelGenerator : MonoBehaviour
 {
     [SerializeField] private Transform axis;
     [SerializeField] private Floor floorPrefab;
@@ -12,16 +12,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] private int minTrapSegment;
     [SerializeField] private int maxTrapSegment;
 
-    public Transform BALLTRANSFORM;
-
     private float floorAmount = 0;
+    public float FloorAmount => floorAmount;
+    private float lastFloorY = 0;
+    public float LastFloorY => lastFloorY;
 
-    private void Start()
-    {
-        Generate(1);
-
-        BALLTRANSFORM.position = new Vector3(BALLTRANSFORM.position.x, floorAmount * floorHeight - 1, BALLTRANSFORM.position.z);
-    }
+    [SerializeField] private PaletteManager paletteManager;
 
     public void Generate(int level)
     {
@@ -31,27 +27,31 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
         axis.transform.localScale = new Vector3(1, floorAmount * floorHeight + floorHeight, 1);
 
+        PaletteManager.ColorPalette currentPalette = paletteManager.GetSelectedPalette();
+
         for (int i = 0; i < floorAmount; i++)
         {
             Floor floor = Instantiate(floorPrefab, transform);
             floor.transform.Translate(0, i * floorHeight, 0);
             floor.name = "Floor " + i;
+            floor.Initialize(currentPalette.defaultSegmentColor);
 
             if (i == 0)
             {
-                floor.SetFinishSegment();
+                floor.SetFinishSegment(currentPalette.finishSegmentColor);
             }
 
             if (i > 0 && i < floorAmount - 1)
             {
                 floor.SetRandomRotate();
                 floor.AddEmptySegment(amountEmptySegment);
-                floor.AddRandomTrapSegment(Random.Range(minTrapSegment, maxTrapSegment+1));
+                floor.AddRandomTrapSegment(Random.Range(minTrapSegment, maxTrapSegment + 1), currentPalette.trapSegmentColor);
             }
 
             if (i == floorAmount - 1)
             {
                 floor.AddEmptySegment(amountEmptySegment);
+                lastFloorY = floor.transform.position.y + .6f;
             }
         }
     }

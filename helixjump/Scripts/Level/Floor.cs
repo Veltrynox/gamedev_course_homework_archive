@@ -5,6 +5,14 @@ public class Floor : MonoBehaviour
 {
     [SerializeField] private List<Segment> defaultSegment;
 
+    public void Initialize(Color defaultColor)
+    {
+        foreach (Segment segment in defaultSegment)
+        {
+            segment.SetDefault(defaultColor);
+        }
+    }
+
     public void AddEmptySegment(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -16,16 +24,15 @@ public class Floor : MonoBehaviour
         {
             defaultSegment.RemoveAt(0);
         }
-
     }
 
-    public void AddRandomTrapSegment(int amount)
+    public void AddRandomTrapSegment(int amount, Color trapColor)
     {
         for (int i = 0; i < amount; i++)
         {
             int index = Random.Range(0, defaultSegment.Count);
 
-            defaultSegment[index].SetTrap();
+            defaultSegment[index].SetTrap(trapColor);
             defaultSegment.RemoveAt(index);
         }
     }
@@ -34,11 +41,11 @@ public class Floor : MonoBehaviour
         transform.eulerAngles = new Vector3(0, Random.Range(0, 300), 0);
     }
 
-    public void SetFinishSegment()
+    public void SetFinishSegment(Color finishColor)
     {
         for (int i = 0; i < defaultSegment.Count; i++)
         {
-            defaultSegment[i].SetFinish();
+            defaultSegment[i].SetFinish(finishColor);
         }
     }
 }
