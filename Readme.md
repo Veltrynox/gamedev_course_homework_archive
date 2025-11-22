@@ -4,7 +4,15 @@ This repository contains small game projects created as part of learning exercis
 
 ## Directories
 ### Unity Games
-- Adventure
+- **Helix Jump**
+
+![adventure_preview](helixjump/images/gameplay.gif)
+
+- **Bass Blast**
+  
+![adventure_preview](ball_blast/content/gameplay.gif)
+
+- **Adventure**
 
 ![adventure_preview](content/adventure.gif)
 
