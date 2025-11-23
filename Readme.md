@@ -2,42 +2,36 @@
 
 This repository contains small game projects created as part of learning exercises. The games are organized into directories based on their technology stack:
 
-## Directories
-### Unity Games
-- **Helix Jump**
+## Unity Games
 
-![adventure_preview](helixjump/images/gameplay.gif)
+| Project    | Preview                           | | |
+| ---------- | --------------------------------- |-|-|
+| Helix Jump | <img src="helixjump/images/gameplay.gif" width="150" height="300" />   | Bass Blast | <img src="ball_blast/content/gameplay.gif" width="400" height="250" /> |
+| Adventure  | <img src="content/adventure.gif" width="300" height="300" />           | | |
 
-- **Bass Blast**
-  
-![adventure_preview](ball_blast/content/gameplay.gif)
+---
 
-- **Adventure**
+## SFML Games
 
-![adventure_preview](content/adventure.gif)
+| Project    | Description                                | Preview                   |
+| ---------- | ------------------------------------------ | ------------------------- |
+| Pacman     | —                                          | ![](content/pacman.gif)      |
+| FindCouple | Find the Pair — flip cards and match pairs | ![](content/find_couple.gif) |
+| Arkanoid   | —                                          | ![](content/arkanoid.gif)    |
 
-### `SFML games`
-Contains games that use SFML graphic framework
-- Pacman
+---
 
-![pacman_preview](content/pacman.gif)
+## Pong Game (LOVE2D)
 
-- FindCouple
-Find the Pair is a quick memory game where you flip cards to match two of the same. Match all pairs to win!
+| Project    | Description                                 | Preview                   |
+| ---------- | ------------------------------------------- | ------------------------- |
+| Pong Clone | Classic Pong implemented in LOVE2D with Lua | ![](content/pong_banner.jpg) |
 
-![findcouple_preview](content/find_couple.gif)
+---
 
-- Arkanoid
+## C# Terminal Games
 
-![arkanoid_preview](content/arkanoid.gif)
+| Project Type        | Notes                                      |
+| ------------------- | ------------------------------------------ |
+| Console-based games | Includes Fighting game, Tic-Tac-Toe, Snake |
 
-
-### `pong game`
-Contains a Pong game implemented using the [LOVE2D](https://love2d.org/) framework.  
-- A classic Pong clone demonstrating simple 2D game mechanics with Lua scripting.
-
-![pong_preview](content/pong_banner.jpg)
-
-### `c terminal games`
-Contains simple console-based games written in C#.
-- Includes text-based games like a Fighting game, Tic-Tac-Toe, Snake
